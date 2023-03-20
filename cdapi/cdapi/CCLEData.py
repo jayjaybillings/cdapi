@@ -78,13 +78,13 @@ class CCLEData:
         """
         return self.__get_sub_frame(query_column_name, value)[list_column_name].to_list()
 
-    def is_tcga_hotspot(self, gene_name, cell_line) -> bool:
+    def is_tcga_hotspot(self, gene_id, cell_line) -> bool:
         """ This function checks whether the named gene is a TCGA
         hotspot for the name cell line.
 
         Parameters
         ----------
-        gene_name : int
+        gene_id : int
             The Entrez Gene Id of the gene to check in the cell line
         cell_line : str
             The DepMap_ID of the cell line that make have the hotspot
@@ -96,7 +96,7 @@ class CCLEData:
         False if not.
         """
         # Grab all the cell lines for the specified gene
-        lines = self.get_cell_lines(gene_name)
+        lines = self.get_cell_lines(gene_id)
         return True if cell_line in lines else False
 
     def get_tcga_genes(self, cell_line) -> []:

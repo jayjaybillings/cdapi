@@ -3,6 +3,9 @@
 This project contains all of the source code for the Cancer Data API web service.
 
 ## Initial project setup
+
+This project uses Python Virtual Environments to install all packages and configuration settings on top of the/an existing python installation. The virtual environment is configured and accessed with `pipenv`.
+
 ```sh
 # Install dependencies
 pipenv install --dev
@@ -14,21 +17,48 @@ pipenv run pre-commit install -t pre-push
 
 ## Running tests
 
-Run the tests for this project with
+Run the tests for this project from the root directory with
 
 ```bash
 pipenv run pytest
 ```
 
+Be sure to use the root directory to
+1. Catch the right paths for the test date
+2. Allow the tests to import cdapi correctly
+
+## Running the server
+
+This project uses FastAPI and Uvicorn to publish the data api. Start the server as follows:
+
+```bash
+pipenv run uvicorn cdapi.CCLE_web_service:app --reload
+```
+
+Follow the instructions on screen to find the service loaded at
+[http://127.0.0.1:8000](http://127.0.0.1:8000). Follow the links on
+that page to interact with the API.
+
 ## Updating dependencies
 
-Dependencies need to be installed in the virtual environment for the project to run successfull as described above. Dependencies should be added to the appropriate section in Pipfile and
+Dependencies need to be installed in the virtual environment for the project to run successfully as described above. Dependencies are installed with
 
 ```bash
 pipenv install --dev
 ```
 
-should be re-run as needed.
+If the pipfile changes, either because a dependency was added or removed, run
+
+```bash
+pipenv update
+```
+In some cases, it may be necessary to run the install command again if the pipfile changes, but generally updates are sufficient.
+
+The list of installed packages can be manually verified with
+
+```bash
+pipenv graph
+```
 
 ## Development in Eclipse
 
