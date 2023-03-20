@@ -25,7 +25,7 @@ def test_get_genes():
     assert response.json() == genes
 
 def test_get_cell_lines():
-    """This is a basic test fo make sure cell lines can be retrieved
+    """This is a basic test to make sure cell lines can be retrieved
     given a gene."""
     cell_lines = ['ACH-000450', 'ACH-000555', 'ACH-000835',
                       'ACH-000915', 'ACH-002097', 'ACH-002231',
