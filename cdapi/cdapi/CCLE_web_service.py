@@ -54,7 +54,7 @@ async def root():
     return page_html
 
 @app.get("/checkHotspot/")
-async def check_hotspot(gene_id : int, cell_line : str):
+async def check_hotspot(gene_id : int, cell_line : str) -> bool:
     """ This function checks whether the named gene is a TCGA
     hotspot for the name cell line.
 
@@ -74,7 +74,8 @@ async def check_hotspot(gene_id : int, cell_line : str):
     True if the gene is a TCGA hotspot gene in the cell line, and
     False if not.
     """
-    return {"isTCGAHotspot",data.is_tcga_hotspot(gene_id,cell_line)}
+    isHotspot = jsonable_encoder(data.is_tcga_hotspot(gene_id,cell_line))
+    return JSONResponse(content=isHotspot)
 
 @app.get("/genes/{cell_line}")
 async def get_genes(cell_line : str):
@@ -98,7 +99,7 @@ async def get_genes(cell_line : str):
     gene_list = jsonable_encoder(data.get_tcga_genes(cell_line))
     return JSONResponse(content=gene_list)
 
-@app.get("/cell_lines/{genes}")
+@app.get("/cell_lines/{gene}")
 async def get_cell_lines(gene : int):
     """ This function returns all available cell lines for a given
     gene, if they exist.
