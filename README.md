@@ -14,4 +14,4 @@ Developer instructions are also available in [cdapi/README.md](cdapi/README.md).
 
 ## License and Copyright
 
-See [LICENSE](License).
+See [LICENSE](LICENSE).
