@@ -1,34 +1,17 @@
 # Cancer Data API Project for Zephyr AI job interview
 
-This is a simple API that ....<add text describing the problem from Zephyr>
+This is a simple API that provides a RESTful (mostly...) API to query the cellular model mutations dataset from the Cancer Dependency Map. It uses a compressed version of the dataset to show only those genes that are marked as hotspots in the Cancer Genome Atlas (TCGA). Entrez gene ids identify genes and DepMap ids identify cell lines.
 
-## User quick start
+Genes can be checked against cell lines to see if they are considered TCGA hotspot genes. Genes can also be searched to return the full list of cell lines where they are considered hotspots. Finally, cell lines can be queried to get all genes that are hotspots for that line.
 
-The following steps will create and execute a Docker container running this application.
-1. Obtain the source code. Since this is a private project, use the tarball from Michel or Ripple. Alternatively, email jayjaybillings@gmail.com and ask for access to the GitHub repository which will enable you to execute
+The service can be run locally or in a Docker container.
 
-```bash
-git clone https://github.com/jayjaybillings/zephyrAI_cdapi
-```
+## Quick start
 
-2...n. Build the Docker bundle with
+The project is split in code and Docker directories. Follow instructions in [cdapi/README.md](cdapi/README.md) to start the API in standalone mode. Follow the instructions in [cdapi_docker/README.md](cdapi_docker/README.md) to create and launch the Docker container.
 
-```
-docker...
-```
+Developer instructions are also available in [cdapi/README.md](cdapi/README.md).
 
-n+1. Execute the Docker container
+## License and Copyright
 
-## Developer quick start
-
-1. Follow step 1 in the previous section to obtain the source code.
-2. Install the prerequisites using the requirements.txt file and pip:
-
-```bash
-pip
-```
-2. Make sure the tests work
-
-```bash
-pytest -n ...
-```
+See [LICENSE](License).
