@@ -1,4 +1,4 @@
-# Cancer Data API Project for Zephyr AI job interview
+# Cancer Data API Project
 
 This is a simple API that provides a RESTful (mostly...) API to query the cellular model mutations dataset from the Cancer Dependency Map. It uses a compressed version of the dataset to show only those genes that are marked as hotspots in the Cancer Genome Atlas (TCGA). Entrez gene ids identify genes and DepMap ids identify cell lines.
 
